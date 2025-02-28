@@ -1,9 +1,7 @@
 <p align="center"> 
-  <img src="images/livox_mid40.jpg" alt="Livox-mid-40" width="200px">
+  <img src="images/fullsizeoutput_2c9.jpeg" alt="Livox-mid-40" width="200px">
 </p>
-<h1 align="center"> Livox Mid-40 </h1>
-<h3 align="center"> Data acquisition and processing </h3>  
-
+<h1 align="center"> Hydraulic effects of channel reconfiguration and floodplain reconnection </h1>
 </br>
 
 <!-- TABLE OF CONTENTS -->
