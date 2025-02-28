@@ -25,7 +25,7 @@
 <h2 id="about-the-project"> :pencil: About The Project</h2>
 
 <p align="justify"> 
-This project seeks to develop a workflow for ingesting data acquired by Livox Mid-40 LiDAR systems for automated acquisition of 3D topographic data which can be used to determine geomorphic change. This repository is split into three sections, namely: i) code used to generate figures present within the research article "An evaluation of low-cost terrestrial LiDAR sensors for assessing geomorphic change"; ii) code used to interface with the Livox Mid-40 LiDAR sensors using a Fitlet 2 operating in Windows and; iii) code used to process the raw data acquired by the Livox sensors. 
+This project seeks to develop the evidence base for how channel reconfiguration and floodplain reconnection can affect the hydraulic behavior in the modified reach. This repository provides data and code used to generate figures present within the research article "Hydraulic effects of channel reconfiguration and floodplain reconnection". 
 </p>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
@@ -33,17 +33,7 @@ This project seeks to develop a workflow for ingesting data acquired by Livox Mi
 <!-- PREREQUISITES -->
 <h2 id="prerequisites"> :fork_and_knife: Prerequisites</h2>
 
-**Replicating the outputs** presented in "An evaluation of low-cost terrestrial LiDAR sensors for assessing geomorphic change" requires the user to download the data files from: https://data.ncl.ac.uk/articles/dataset/Data_for_output_replication/23501091/2, the code from this GitHub repository, and to be able to run MATLAB 2019a onwards. If the user wishes to re-process the Livox data they will also need to download the converted raw data from: https://www.dropbox.com/sh/0x3zrgdzbtncjed/AACWkr69x_NbNSZW8kF75FBka?dl=0 or https://hidrive.ionos.com/share/7a01joszlq
-  
-**Processing of the acquired raw data** is currently undertaken through two routes:
-* Files within the "ros" subfolder are executed in a Linux docker container. This container should be configured to work with the Robot Operating System (ROS). The "cloud_calls.py" script assumes that data to be converted is stored within an Amazon S3 bucket with the converted data being uploaded back to the S3 service. S3cmd is required for this operation. This script is provided as an example and could be modified for your own individual case. This process has already been conducted on the converted raw data presented in https://www.dropbox.com/sh/0x3zrgdzbtncjed/AACWkr69x_NbNSZW8kF75FBka?dl=0, and https://hidrive.ionos.com/share/7a01joszlq
-* Files within the "scan" subfolder are executed using MATLAB 2019a onwards to split, align, and re-merge the Livox data. To begin this process, execute "parsing_pcd.m" esnuring that you have modified the input variables accordingly.
-    
-**Interfacing with the Livox sensor** is currently achieved using a Livox Hub connected to a x64-based Windows 10 PC. Scripts required for this are found in the "interfacing" folder. This has the following dependencies:
-* Python 3.10.*
-* pyserial (if using accelerometer): python -m pip install pyserial
-* pandas: pip install pandas
-* livox sdk: https://github.com/Livox-SDK/Livox-SDK - this needs to be compiled from source
+**Replicating the outputs** presented in "Hydraulic effects of channel reconfiguration and floodplain reconnection" requires the user to download the data files and code from this GitHub repository, and to be able to run MATLAB 2019a onwards. The easiest way of achieving this is to clone the repository onto you PC. 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
@@ -55,20 +45,18 @@ Below is the an outline of the folder structure within this repository with desc
 </p>
 
     .
-    ├── code                    # folder containing scripts to work with the livox mid-40 scanners
-    │   ├── fig1                # schematic diagram presented in Figure 1
-    │   ├── fig3                # scripts required to generate outputs presented in Figure 3
-    │   ├── fig4                # scripts required to generate outputs presented in Figure 4
-    │   ├── fig5                # scripts required to generate outputs presented in Figure 5
-    │   ├── fig6                # scripts required to generate outputs presented in Figure 6	
-    │   ├── fig7                # scripts required to generate outputs presented in Figure 7
-    │   ├── fig8                # scripts required to generate outputs presented in Figure 8
-    │   ├── fig9                # scripts required to generate outputs presented in Figure 9
-    │   ├── interfacing         # scripts required to interface with mid-40 using a Fitlet 2 (on Windows)
-    │   ├── processing          # scripts for data processing
-    │   │   │── ros             # scripts for data conversion from lvx to pcd
-    │   │   │── scan            # scripts for generating outputs from raw (.pcd) data
-    ├── images                  # folder containing images 
+    ├── code                        # folder containing scripts to reproduce figures
+    │   ├── dependencies            # dependencies for running figures scipts
+    │   ├── figures                 
+    │   │   ├── fig1                # schematic diagram presented in Figure 1
+    │   │   ├── fig3                # scripts required to generate outputs presented in Figure 3
+    │   │   ├── fig4                # scripts required to generate outputs presented in Figure 4
+    │   │   ├── fig5                # scripts required to generate outputs presented in Figure 5
+    │   │   ├── fig6                # scripts required to generate outputs presented in Figure 6	
+    │   │   ├── fig7                # scripts required to generate outputs presented in Figure 7
+    │   │   ├── fig8                # scripts required to generate outputs presented in Figure 8
+    │   │   ├── fig9                # scripts required to generate outputs presented in Figure 9
+    ├── data                        # folder containing underlying data 
  
   
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
