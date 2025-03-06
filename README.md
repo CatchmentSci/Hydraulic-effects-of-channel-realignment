@@ -23,7 +23,7 @@
 <h2 id="about-the-project"> :pencil: About The Project</h2>
 
 <p align="justify"> 
-This project seeks to develop the evidence base for how channel reconfiguration and floodplain reconnection can affect the hydraulic behavior in the modified reach. This repository provides data and code used to generate figures present within the research article "Hydraulic effects of channel reconfiguration and floodplain reconnection". 
+This project seeks to develop the evidence base for how channel reconfiguration and floodplain reconnection can affect the hydraulic behavior in the affected reach. This repository provides data and code used to generate figures present within the research article "Hydraulic effects of channel reconfiguration and floodplain reconnection". 
 </p>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
@@ -43,18 +43,11 @@ Below is the an outline of the folder structure within this repository with desc
 </p>
 
     .
-    ├── code                        # folder containing scripts to reproduce figures
+    ├── code                        
     │   ├── dependencies            # dependencies for running figures scipts
-    │   ├── figures                 
-    │   │   ├── fig1                # schematic diagram presented in Figure 1
-    │   │   ├── fig3                # scripts required to generate outputs presented in Figure 3
-    │   │   ├── fig4                # scripts required to generate outputs presented in Figure 4
-    │   │   ├── fig5                # scripts required to generate outputs presented in Figure 5
-    │   │   ├── fig6                # scripts required to generate outputs presented in Figure 6	
-    │   │   ├── fig7                # scripts required to generate outputs presented in Figure 7
-    │   │   ├── fig8                # scripts required to generate outputs presented in Figure 8
-    │   │   ├── fig9                # scripts required to generate outputs presented in Figure 9
+    │   ├── figures                 # folder containing scripts to reproduce figures
     ├── data                        # folder containing underlying data 
+    ├── images                      # folder containing images used in repository 
  
   
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
@@ -64,22 +57,18 @@ Below is the an outline of the folder structure within this repository with desc
 <p align="justify"> 
     
 * Clone or download this repository so that it is accessible on your PC.
-* Download the files from: https://data.ncl.ac.uk/articles/dataset/Data_for_output_replication/23501091/2 to your PC.  
 * Open MATLAB on your PC.
-* To generate Figure 3, run flowCharts.tex from your latex compiling software
-* To generate Figure 4, ensure all scripts in "fig4" subfolder are accesible in your MATLAB search path, execute "densityPlot.m", ensuring that you provide the links to the directories containing the relevant datasets (downloaded from Step 2 above).
-* To generate Figure 5, ensure all scripts in "fig5" subfolder are accesible in your MATLAB search path, execute "master_fcn_fig5.m", ensuring that you provide the links to the directories containing the relevant datasets (downloaded from Step 2 above).
-* To generate Figure 6, ensure all scripts in "fig6" subfolder are accesible in your MATLAB search path, execute "cloud_comparisons.m", ensuring that you provide the links to the directories containing the relevant datasets (downloaded from Step 2 above).
-* To generate Figure 7, ensure all scripts in "fig7" subfolders are accesible in your MATLAB search path, execute "cdf_plots.m", ensuring that you provide the links to the directories containing the relevant datasets (downloaded from Step 2 above). 
-* To generate Figure 8, ensure all scripts in "fig8" subfolders are accesible in your MATLAB search path, execute "plotGaugingData.m", ensuring that you provide the links to the directories containing the relevant datasets (downloaded from Step 2 above).
-* To generate Figure 9, ensure all scripts in "fig9" subfolders are accesible in your MATLAB search path, execute "long_transect_bank_retreat.m", ensuring that you provide the links to the directories containing the relevant datasets (downloaded from Step 2 above).
+* Ensure that the folder containing the downloaded repsoitory is visible on the MATLAB path.
+* Open the .m file of the Figure that you would like to reproduce.
+* Read the preamble and define any variables (links to folders) as requried.
+* Run the script.
     
   ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
   <p align="center"> 
-  <img src="images/IMG_20220128_155022009_HDR.jpg" alt="Goldrill Beck setup" >
+  <img src="images/IMG_20220128_155022009_HDR.jpg" alt="Goldrill Beck" >
   </p>
   <p align="center"> 
-  View looking upstream at the Goldrill Beck monitoring site. Shown in the image are the Livox monitoring system, and Riegl VZ-4000 acquiring validation data.
+  Photo taken at the upper section of the reconfigured reach of Goldrill Beck.
   </p>
   
