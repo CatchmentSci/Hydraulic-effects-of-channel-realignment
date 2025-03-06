@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img src="images/fullsizeoutput_2c9.jpeg" alt="Livox-mid-40" width="400px">
+  <img src="images/DJI_0030.JPG" alt="waning stage" width="400px">
 </p>
 <h1 align="center"> Hydraulic effects of channel reconfiguration and floodplain reconnection </h1>
 </br>
