@@ -1,7 +1,7 @@
 <p align="center"> 
   <img src="images/DJI_0030.JPG" alt="waning stage" width="400px">
 </p>
-<h1 align="center"> Hydraulic effects of channel reconfiguration and floodplain reconnection </h1>
+<h1 align="center"> Hydraulic effects of channel realignment and floodplain reconnection </h1>
 </br>
 
 <!-- TABLE OF CONTENTS -->
@@ -23,7 +23,7 @@
 <h2 id="about-the-project"> :pencil: About The Project</h2>
 
 <p align="justify"> 
-This project seeks to develop the evidence base for how channel reconfiguration and floodplain reconnection can affect the hydraulic behavior in the affected reach. This repository provides data and code used to generate figures present within the research article "Hydraulic effects of channel reconfiguration and floodplain reconnection". 
+This project seeks to develop the evidence base for how channel realignment and floodplain reconnection can affect the hydraulic behavior in the affected reach. This repository provides data and code used to generate figures present within the research article "Hydraulic effects of channel realignment and floodplain reconnection". 
 </p>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
@@ -31,7 +31,7 @@ This project seeks to develop the evidence base for how channel reconfiguration 
 <!-- PREREQUISITES -->
 <h2 id="prerequisites"> :fork_and_knife: Prerequisites</h2>
 
-**Replicating the outputs** presented in "Hydraulic effects of channel reconfiguration and floodplain reconnection" requires the user to download the data files and code from this GitHub repository, and to be able to run MATLAB 2019a onwards. The easiest way of achieving this is to clone the repository onto you PC. 
+**Replicating the outputs** presented in "Hydraulic effects of channel realignment and floodplain reconnection" requires the user to download the data files and code from this GitHub repository, and to be able to run MATLAB 2019a onwards. The easiest way of achieving this is to clone the repository onto you PC. 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
