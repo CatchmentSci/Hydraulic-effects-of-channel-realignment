@@ -58,7 +58,7 @@ Below is the an outline of the folder structure within this repository with desc
     
 * Clone or download this repository so that it is accessible on your PC.
 * Open MATLAB on your PC.
-* Ensure that the folder containing the downloaded repsoitory is visible on the MATLAB path.
+* Ensure that the folder containing the downloaded repository is visible on the MATLAB path.
 * Open the .m file of the Figure that you would like to reproduce.
 * Read the preamble and define any variables (links to folders) as requried.
 * Run the script.
