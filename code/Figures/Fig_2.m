@@ -6,18 +6,18 @@
 clear all; close all; clc
 
 % directory containing data and scripts downloaded from github/zenodo. 
-% should contain subfolders called 'Data' and 'Scripts'.
-root_dir = 'D:\OneDrive - Newcastle University\Documents - Goldrill Beck Research\General\_shared\Submission Docs\'; 
+% should contain subfolders called 'data' and 'Scripts'.
+root_dir = 'C:\_git_local\Hydraulic-effects-of-channel-realignment\'; 
 
 % specify the folder where generated data/outputs will be stored to.
-data_out = [root_dir 'Data\']; 
+data_out = [root_dir 'data\']; 
 
 % ensure matlab can find required m files
 addpath(genpath(root_dir)); 
 
 
 %% Bring in the cross-section data for site 1
-T           = readtable([root_dir 'Data\MS50 Export Site1.xlsx'],'Sheet','Sheet 1'); % The tab where the data is stored is called 'Data'
+T           = readtable([root_dir 'data\MS50 Export Site1.xlsx'],'Sheet','Sheet 1'); % The tab where the data is stored is called 'data'
 lengthData  = sum(~isnan(table2array(T(:,11))));
 distanceIn  = table2array(T(1:lengthData,11)); % This extracts the distance for site 1
 realHgtIn   = table2array(T(1:lengthData,13)); % This extracts the corrected hgt for site 1
@@ -73,7 +73,7 @@ s1_gauging_times = datetime(s1_gauging(:,1));
 
 
 % Bring in the PT data for site 1
-T           = readtable([root_dir 'Data\Site 1.xlsx'], 'Sheet','Sheet1');
+T           = readtable([root_dir 'data\Site 1.xlsx'], 'Sheet','Sheet1');
 dateIn      = T{:,1};
 levelIn     = T{:,2}; % offset of + 0.3418m has already been applied to the data 
 
@@ -93,7 +93,7 @@ missing_level   = find(use_rating_idx == 0);
 
 %% use site 3 to compensate for no site 1 data for some gaugings
 
-T               = readtable([root_dir 'Data\Site 3.xlsx'], 'Sheet','Sheet1');
+T               = readtable([root_dir 'data\Site 3.xlsx'], 'Sheet','Sheet1');
 dateIn_s3       = T{:,1};
 levelIn_s3      = T{:,2};
 idx             = ~isnan(levelIn_s3);
@@ -158,7 +158,7 @@ vel_check           = ((infilled_gauging_level.^(2/3)) .* (0.012.^(0.5))) ./ man
 eval_idx            = find(levelUse > max(infilled_gauging_level));
 
 % import the rating curve developed in R Studio
-T                   = readtable([root_dir 'Data\site1_rating_curve.csv']);
+T                   = readtable([root_dir 'data\site1_rating_curve.csv']);
 
 for a = 1:length(levelUse)
     [r(a)]      = findnearest(levelUse(a),table2array(T(:,2)));

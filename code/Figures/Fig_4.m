@@ -250,9 +250,6 @@ ranger = ([25, 75, 80, 120, 140, 190 ] *12) + 289; % ignore spin up period
             peak_q_idx      = (q_idx{looper}(b,2)+0) ./ 12 - (289./12) - starting_point{looper};
             phi{looper}(b,2) = calculate_phase(wave_duration{looper} (b), peak_stage_idx(1), peak_q_idx);
 
-
-
-
         end
 
     end

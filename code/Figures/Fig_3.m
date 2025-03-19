@@ -7,17 +7,17 @@ clear all; close all; clc
 
 % directory containing data and scripts downloaded from github/zenodo. 
 % should contain subfolders called 'Data' and 'Scripts'.
-root_dir = 'D:\OneDrive - Newcastle University\Documents - Goldrill Beck Research\General\_shared\Submission Docs\'; 
+root_dir = 'C:\_git_local\Hydraulic-effects-of-channel-realignment\'; 
 
 % specify the folder where generated data/outputs will be stored to.
-data_out = [root_dir 'Data\']; 
+data_out = [root_dir 'data\']; 
 
 % ensure matlab can find required m files
 addpath(genpath(root_dir)); 
 
 
 %% Bring in the cross-section data for site 2
-T               = readtable([root_dir 'Data\MS50 Export Site2.xlsx'],'Sheet','Corrected XS'); % The tab where the data is stored is called 'Data'
+T               = readtable([root_dir 'data\MS50 Export Site2.xlsx'],'Sheet','Corrected XS'); % The tab where the data is stored is called 'Data'
 lengthData      = sum(~isnan(table2array(T(:,11))));
 distanceIn      = table2array(T(1:lengthData,9)); % This extracts the data from the first collumn i.e. disctance for site 2
 realHgtIn       = table2array(T(1:lengthData,11)); % This extracts the data from the third collumn i.e. corrected hgt for site 2
@@ -73,11 +73,11 @@ s2_gauging_times = datetime(s2_gauging(:,1));
 %% check to see if the data has been processed previously, and bring it in if it has, otherwise process
 % this takes some time to run
 
-if exist ([root_dir 'Data\matched_flow_data.mat'])
-    load([root_dir 'Data\matched_flow_data.mat']);
+if exist ([root_dir 'data\matched_flow_data.mat'])
+    load([root_dir 'data\matched_flow_data.mat']);
 else
     %% Bring in the PT data for site 1
-    T           = readtable([root_dir 'Data\Site 1.xlsx'], 'Sheet','Sheet1');
+    T           = readtable([root_dir 'data\Site 1.xlsx'], 'Sheet','Sheet1');
     dateIn      = T{:,1};
     levelIn     = T{:,2}; % offset of + 0.3418m has already been applied to the data in the spreadsheet
     idx         = ~isnan(levelIn);
@@ -87,7 +87,7 @@ else
 
 
     %% Bring in the PT data for site 2
-    T           = readtable([root_dir 'Data\Site 2.xlsx'], 'Sheet','Sheet 2');
+    T           = readtable([root_dir 'data\Site 2.xlsx'], 'Sheet','Sheet 2');
     dateIn2     = T{:,1};
     levelIn2    = T{:,2}; % offset of + 0.3827m has already been applied to the data in the spreadsheet
     idx         = ~isnan(levelIn2);
@@ -113,12 +113,12 @@ else
     s2_date_matched     = dateUse2(idx_a(use_idx));
     s2_level_matched    = levelUse2(idx_a(use_idx));
 
-    save([root_dir 'Data\matched_flow_data.mat'], 's1_date_matched', 's1_level_matched', 's2_date_matched', 's2_level_matched');
+    save([root_dir 'data\matched_flow_data.mat'], 's1_date_matched', 's1_level_matched', 's2_date_matched', 's2_level_matched');
 
 end
 
 %% bring in the rating curve data
-T2 = table2array(readtable([root_dir 'Data\rating_curve_h_grid_s2_1.csv'],'FileType','delimitedtext')); % The tab where the data is stored is called 'Data'
+T2 = table2array(readtable([root_dir 'data\rating_curve_h_grid_s2_1.csv'],'FileType','delimitedtext')); % The tab where the data is stored is called 'Data'
    
 
 
@@ -168,7 +168,7 @@ set(ax1,'DefaultTextFontName','Arial')
 ax1.Color = 'none';
 
 % load the listflood results
-load([root_dir 'Data\run13.mat'])
+load([root_dir 'data\run13.mat'])
 
 s2_level_comp = s2_level_matched(42190:42190+(44170-42211));
 

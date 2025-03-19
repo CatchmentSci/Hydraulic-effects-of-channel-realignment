@@ -3,16 +3,16 @@ clear all; close all; clc;
 
 % directory containing data and scripts downloaded from github/zenodo. 
 % should contain subfolders called 'Data' and 'Scripts'.
-root_dir = 'D:\OneDrive - Newcastle University\Documents - Goldrill Beck Research\General\_shared\Submission Docs\'; 
+root_dir = 'C:\_git_local\Hydraulic-effects-of-channel-realignment\'; 
 
 % specify the folder where generated data/outputs will be stored to.
-data_out = [root_dir 'Data\']; 
+data_out = [root_dir 'data\']; 
 
 % ensure matlab can find required m files
 addpath(genpath(root_dir)); 
 
 % bring in the gauging data input file
-fileIn      = [root_dir 'Data\experimental run inputs1.xlsx'];
+fileIn      = [root_dir 'data\experimental run inputs1.xlsx'];
 opts        = detectImportOptions(fullfile([fileIn]));
 ii          = readtable(fileIn,opts);
 
@@ -23,7 +23,7 @@ q_in = q_in(~isnan(q_in));
 q_in = q_in(289:end);
 
 % specify the matlab data files
-processed_dirName = [root_dir 'Data\'];
+processed_dirName = [root_dir 'data\'];
 processed_list = {'simB_pre_post.mat', 'simC-D.mat' };
 
 for looper = 1:2
@@ -137,8 +137,45 @@ transmission_t(1) = cross_correlation_sims (up_in, down_in1);
 transmission_t(2) = cross_correlation_sims (up_in, down_in2);
 transmission_t(3) = cross_correlation_sims (up_in, down_in3);
 
+% perform hysteresis analysis
+[p3(1), polygon_area(1)] = hysteresis_sims (up_in, down_in2) ; % sim c
+[p3(2), polygon_area(2)] = hysteresis_sims (up_in, down_in3) ; % sim d
+
+% calculate phase of signals
+% specify points
+wave_duration = [50];
+starting_point = [15];
+
+% first for simC
+stage_file      = [root_dir 'data\Run_post_c.stage'];
+opts            = detectImportOptions(stage_file, 'FileType', 'delimitedtext' );
+jj              = readtable(stage_file,opts);
+stage_c         = table2array(jj(4:end,2));
+
+[val, idx]      = nanmax(stage_c); 
+peak_stage_idx  = (idx./12) - (289./12) - starting_point;
+[Qp, q_idx]     = nanmax(sum(floodplain_values_c(:,:)));
+peak_q_idx      = (q_idx ./ 12) - (289./12) - starting_point;
+phi(1)          = calculate_phase(wave_duration, peak_stage_idx, peak_q_idx);
+
+
+% then for SimD
+stage_file      = [root_dir 'data\Run_post_d.stage'];
+opts            = detectImportOptions(stage_file, 'FileType', 'delimitedtext' );
+jj              = readtable(stage_file,opts);
+stage_d         = table2array(jj(4:end,2));
+
+[val, idx]      = nanmax(stage_d); 
+peak_stage_idx  = (idx./12) - (289./12) - starting_point;
+[Qp, q_idx]     = nanmax(sum(floodplain_values_d(:,:)));
+peak_q_idx      = (q_idx ./ 12) - (289./12) - starting_point;
+phi(2)          = calculate_phase(wave_duration, peak_stage_idx, peak_q_idx);
+
 % export the figure
 exportgraphics(f1,['simC-D_out.png'],'Resolution',600)
+
+
+
 
 
 
