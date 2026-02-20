@@ -64,6 +64,7 @@ else
 end
 
 
+
 %% perform basflow seperation
 interval    = datenum(s1_date_matched(2)) - datenum(s1_date_matched(1));
 input1      = transpose(datenum(s1_date_matched(1)):interval:datenum(s1_date_matched(end)));
@@ -168,16 +169,23 @@ for aa = 1:length(event_period)
     end
     if ~isnan(R(1,aa)) && max(R(:,aa)) >0.90 && find ( R(:,aa) == max(R(:,aa))) > 11 % need an r2 of >0.90 to be accepted
         peak_stage(aa,1) = nanmax(array1{aa,1}); % peak flow at site 2 (lower)
+        peak_stage_all(aa,1) = nanmax(array1{aa,1}); % peak flow at site 2 (lower)
         maxVar(aa,1) = find ( R(:,aa) == max(R(:,aa)));
         maxVar(aa,1) = maxVar(aa,1) - length(padder1);
+        maxVar_all = maxVar;
     else
         maxVar(aa,1) = NaN;
         peak_stage(aa,1) = NaN;
+        peak_stage_all(aa,1) = nanmax(array1{aa,1}); % peak flow at site 2 (lower)
     end
 
 end
 
+%% supplementary info plots
 
+Fig_D1
+
+%%
 % convert peak stage to peak flow using the imported rating curve
 for a = 1:length(peak_stage)
     if ~isnan(peak_stage(a,1))

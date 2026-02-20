@@ -126,6 +126,11 @@ for looper = 1:2
 
 end
 
+legend(ax1, {'\it n\rm = 0.06', '\it n\rm = 0.10', '\it n\rm = 0.15'}, ...
+    'Position',[0.584464289359747 0.352776856631012 0.33571427842336 0.126190472784496], ...
+    'Box','off');
+
+
 
 % do xcorr analysis
 up_in    = q_in(:,:);

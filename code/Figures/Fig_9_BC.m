@@ -24,8 +24,8 @@ set(f0_ax1,'fontsize', 12);
 f0_ax1.Color = 'none';
 
 % pre data
-pre_data = [1579 832 994 8192 320];
-post_data = [1790 2538 4734 8405 39];
+pre_data = [13 102 373 7252 291];
+post_data = [267 1297 3424 7353 36];
 mypalette = validatecolor(["#CA0020" "#F4A582" "#F7F7F7" "#92C5DE" "#0571B0"], "multiple");
 
 % Create pie charts
