@@ -1,12 +1,13 @@
 % Initial code to reproduce Figures 5, 6, 8
 % Edit the input variables below to match the locations of the data on your
 % PC. Data variables described can be accessed/downloaded from:
-% [insert link].
+% the GitHub repo at: https://github.com/CatchmentSci/Hydraulic-effects-of-channel-realignment
+% or Zenodo repository at: https://zenodo.org/records/16748995.
 
 clear all; close all; clc
 
 % directory containing data and scripts downloaded from github/zenodo. 
-% should contain subfolders called 'data' and 'Scripts'.
+% should contain subfolders called 'data' and 'code'.
 root_dir = 'C:\_git_local\Hydraulic-effects-of-channel-realignment\'; 
 
 % specify the folder where generated data/outputs will be stored to.
@@ -182,8 +183,10 @@ for aa = 1:length(event_period)
 end
 
 %% supplementary info plots
+% uncomment out the command below to generate the plots created as part of
+% the review process:
 
-Fig_D1
+% Fig_D1
 
 %%
 % convert peak stage to peak flow using the imported rating curve

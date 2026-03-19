@@ -1,8 +1,13 @@
-% Step 1: Load the ASC file
+% Initial code to reproduce Figure 8
+% Edit the input variables below to match the locations of the data on your
+% PC. % Data variables described can be accessed/downloaded from:
+% the GitHub repo at: https://github.com/CatchmentSci/Hydraulic-effects-of-channel-realignment
+% or Zenodo repository at: https://zenodo.org/records/16748995.
+ 
 clear all; close all; clc;
 
 % directory containing data and scripts downloaded from github/zenodo. 
-% should contain subfolders called 'Data' and 'Scripts'.
+% should contain subfolders called 'data' and 'code'.
 root_dir = 'C:\_git_local\Hydraulic-effects-of-channel-realignment\'; 
 
 % specify the folder where generated data/outputs will be stored to.

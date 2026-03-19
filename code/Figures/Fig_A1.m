@@ -1,10 +1,15 @@
+% Initial code to reproduce Figure A1
+% Edit the input variables below to match the locations of the data on your
+% PC. Data variables described can be accessed/downloaded from:
+% the GitHub repo at: https://github.com/CatchmentSci/Hydraulic-effects-of-channel-realignment
+% or Zenodo repository at: https://zenodo.org/records/16748995.
 
-%XS A_DIFF_CALCS Compare bankfull cross-sections (DTM vs MS50) for 3 sections
+% Compares bankfull cross-sections (DTM vs MS50) for 3 sections
 % Produces 3 subplots (one per section), y-axis inverted (depth downward),
 % and prints Δ bankfull area on each subplot.
 
 % ---- INPUT ----
-fileIn = 'D:\OneDrive - Newcastle University\Documents - Goldrill Beck Research\General\_shared\Lisflood-FP\Topo Comparison\DTM_MS50_comp.xlsx';
+fileIn = 'C:\_git_local\Hydraulic-effects-of-channel-realignment\data\DTM_MS50_comp.xlsx';
 T      = readtable(fileIn,'Sheet','Summary');
 
 % Each row: [x_dtm z_dtm x_ms50 z_ms50]

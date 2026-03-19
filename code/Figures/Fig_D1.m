@@ -1,8 +1,8 @@
 %% Plot selected storm hydrographs (Site 1 vs Site 2)
-% Portrait-friendly 3 x 2 figure
-% - Figure uses HALF monitor width, FULL height
-% - NO legends on subplots
-% - Legend is placed in the 6th tile
+% This script is called from within Fig_3_4_5_D1.m
+% As default, the call in the aforementioned script is commented out.
+% To enable this script and generate Figure D1, you must uncommnt line 189
+% within Fig_3_4_5_D1.m
 
 purpose = 2; % 1 =  review 2 = supp info
 

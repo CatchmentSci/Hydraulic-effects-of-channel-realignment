@@ -1,18 +1,22 @@
-% Step 1: Load the ASC file
+% Initial code to reproduce Figure 7
+% Edit the input variables below to match the locations of the data on your
+% PC. % Data variables described can be accessed/downloaded from:
+% the GitHub repo at: https://github.com/CatchmentSci/Hydraulic-effects-of-channel-realignment
+% or Zenodo repository at: https://zenodo.org/records/16748995.
+
 clear all; close all; clc;
 
-% directory containing data and scripts downloaded from github/zenodo. 
-% should contain subfolders called 'Data' and 'Scripts'.
-root_dir = 'D:\OneDrive - Newcastle University\Documents - Goldrill Beck Research\General\_shared\Submission Docs\'; 
+% should contain subfolders called 'data' and 'code'.
+root_dir = 'C:\_git_local\Hydraulic-effects-of-channel-realignment\'; 
 
 % specify the folder where generated data/outputs will be stored to.
-data_out = [root_dir 'Data\']; 
+data_out = [root_dir 'data\']; 
 
 % ensure matlab can find required m files
 addpath(genpath(root_dir)); 
 
 % bring in the gauging data input file
-fileIn      = [root_dir 'Data\experimental run inputs1.xlsx'];
+fileIn      = [root_dir 'data\experimental run inputs1.xlsx'];
 opts        = detectImportOptions(fullfile([fileIn]));
 ii          = readtable(fileIn,opts);
 
@@ -21,7 +25,7 @@ processed_list = {'simA_pre_post.mat', 'simB_pre_post.mat' };
 
 for looper = 1:2
 
-    load([root_dir 'Data\' processed_list{looper} ])
+    load([root_dir 'data\' processed_list{looper} ])
 
     if looper == 1 % sim A
         idx = [13 17];
@@ -159,7 +163,7 @@ ranger = ([25, 75, 80, 120, 140, 190 ] *12) + 289; % ignore spin up period
 
             % calculate phase of signals
             % first for the pre-condition
-            stage_file_pre = [root_dir 'Data\Run_pre_a.stage'];
+            stage_file_pre = [root_dir 'data\Run_pre_a.stage'];
             opts = detectImportOptions(stage_file_pre, 'FileType', 'delimitedtext' );
             jj = readtable(stage_file_pre,opts);
             stage_pre = table2array(jj(4:end,2));
@@ -174,7 +178,7 @@ ranger = ([25, 75, 80, 120, 140, 190 ] *12) + 289; % ignore spin up period
             phi{looper}(b,1) = calculate_phase(wave_duration{looper} (b), peak_stage_idx(1), peak_q_idx);
             
             % then for the post-condition
-            stage_file_post = [root_dir 'Data\Run_post_a.stage'];
+            stage_file_post = [root_dir 'data\Run_post_a.stage'];
             opts = detectImportOptions(stage_file_post, 'FileType', 'delimitedtext' );
             kk = readtable(stage_file_post,opts);
             stage_post = table2array(kk(4:end,2));
@@ -225,7 +229,7 @@ ranger = ([25, 75, 80, 120, 140, 190 ] *12) + 289; % ignore spin up period
 
             % calculate phase of signals
             % first for the pre-condition
-            stage_file_pre = [root_dir 'Data\Run_pre_b.stage'];
+            stage_file_pre = [root_dir 'data\Run_pre_b.stage'];
             opts = detectImportOptions(stage_file_pre, 'FileType', 'delimitedtext' );
             jj = readtable(stage_file_pre,opts);
             stage_pre = table2array(jj(4:end,2));
@@ -240,7 +244,7 @@ ranger = ([25, 75, 80, 120, 140, 190 ] *12) + 289; % ignore spin up period
             phi{looper}(b,1) = calculate_phase(wave_duration{looper} (b), peak_stage_idx(1), peak_q_idx);
 
             % then for the post-condition
-            stage_file_post = [root_dir 'Data\Run_post_b.stage'];
+            stage_file_post = [root_dir 'data\Run_post_b.stage'];
             opts = detectImportOptions(stage_file_post, 'FileType', 'delimitedtext' );
             kk = readtable(stage_file_post,opts);
             stage_post = table2array(kk(4:end,2));

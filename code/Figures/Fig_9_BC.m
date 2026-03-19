@@ -1,3 +1,9 @@
+% Initial code to reproduce Figure 9
+% Edit the input variables below to match the locations of the data on your
+% PC. Data variables described can be accessed/downloaded from:
+% the GitHub repo at: https://github.com/CatchmentSci/Hydraulic-effects-of-channel-realignment
+% or Zenodo repository at: https://zenodo.org/records/16748995.
+
 % clear the workspace
 clear all; close all; clc;
 

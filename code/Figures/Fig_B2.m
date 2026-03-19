@@ -1,4 +1,10 @@
-%% Step 1: Load the ASC file + model outputs, match PT timestamps, then plot with coolwarm + color ramp
+% Initial code to reproduce Figure B2
+% Edit the input variables below to match the locations of the data on your
+% PC. Data variables described can be accessed/downloaded from:
+% the GitHub repo at: https://github.com/CatchmentSci/Hydraulic-effects-of-channel-realignment
+% or Zenodo repository at: https://zenodo.org/records/16748995.
+
+% clear workspace
 clear all; close all; clc;
 
 %% -------------------- LOAD MODEL RUNS --------------------
@@ -24,7 +30,6 @@ for r = 1:length(ninputs)
 end
 
 %% -------------------- LOAD / BUILD MATCHED FLOW DATA --------------------
-root_dir = 'C:\_git_local\Hydraulic-effects-of-channel-realignment\';
 
 if exist(fullfile(root_dir,'data','matched_flow_data.mat'), 'file')
     load(fullfile(root_dir,'data','matched_flow_data.mat'));

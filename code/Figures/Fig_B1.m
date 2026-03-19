@@ -1,4 +1,10 @@
-% Step 1: Load the ASC file
+% Initial code to reproduce Figure B1
+% Edit the input variables below to match the locations of the data on your
+% PC. Data variables described can be accessed/downloaded from:
+% the GitHub repo at: https://github.com/CatchmentSci/Hydraulic-effects-of-channel-realignment
+% or Zenodo repository at: https://zenodo.org/records/16748995.
+
+% clear workspace
 clear all; close all; clc;
 
 root_dir = 'C:\_git_local\Hydraulic-effects-of-channel-realignment\';
@@ -155,7 +161,6 @@ ax1.XTickLabel = [];
 yticks(ax1, [0.8 1 1.2 1.4 1.6])
 
 ylabel(ax1, 'h [m]', 'Interpreter', 'none')
-%xlabel(ax1, 'In-channel Q [m^{3} s^{-1}]');
 
 % ---- BOTTOM subplot formatting ----
 xlim(ax2, [0.7 22])                 % match x-range
